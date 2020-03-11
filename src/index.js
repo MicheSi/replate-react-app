@@ -7,13 +7,12 @@ import logger from 'redux-logger';
 
 // component imports
 import App from './App';
-import {reducer} from './reducers';
+import {rootReducer} from './reducers';
 
 // style imports
 import './index.css';
 
-const store = createStore(reducer, applyMiddleware(thunk, logger));
-
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
     <Provider store={store}>
