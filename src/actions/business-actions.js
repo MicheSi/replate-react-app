@@ -29,7 +29,7 @@ export const registerBusiness = (props) => dispatch => {
     axios
     .post('https://bw-replate2.herokuapp.com/api/auth/business/register')
     .then(res => {
-        dispatch({type: POST_BREGISTER_SUCCESS, payload: res})
+        dispatch({type: POST_BREGISTER_SUCCESS, payload: res.data})
     })
     .catch(err =>
         dispatch({type: POST_BREGISTER_FAIL, payload: err}))
@@ -40,7 +40,7 @@ export const loginBusiness = (props) => dispatch => {
     axios
     .post('https://bw-replate2.herokuapp.com/api/auth/business/login')
     .then(res => {
-        dispatch({type: POST_BLOGIN_SUCCESS, payload: res})
+        dispatch({type: POST_BLOGIN_SUCCESS, payload: res.data})
     })
     .catch(err =>
         dispatch({type: POST_BLOGIN_FAIL, payload: err}))
@@ -85,7 +85,7 @@ export const deleteBusiness = (props) => dispatch => {
     axiosWithAuth()
     .delete(`/users/business/${id}`, business)
     .then(res => {
-        dispatch({type: REMOVE_BUSINESS_SUCCESS, payload: res})
+        dispatch({type: REMOVE_BUSINESS_SUCCESS, payload: res.data})
     })
     .catch(err =>
         dispatch({type: REMOVE_BUSINESS_FAIL, payload: err}))

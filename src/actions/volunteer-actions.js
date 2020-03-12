@@ -28,7 +28,7 @@ export const registerVolunteer = (props) => dispatch => {
     axios
     .post('https://bw-replate2.herokuapp.com/api/auth/volunteer/register')
     .then(res => {
-        dispatch({type: POST_VREGISTER_SUCCESS, payload: res})
+        dispatch({type: POST_VREGISTER_SUCCESS, payload: res.data})
     })
     .catch(err =>
         dispatch({type: POST_VREGISTER_FAIL, payload: err}))
@@ -39,7 +39,7 @@ export const loginVolunteer = (props) => dispatch => {
     axios
     .post('https://bw-replate2.herokuapp.com/api/auth/volunteer/login')
     .then(res => {
-        dispatch({type: POST_VLOGIN_SUCCESS, payload: res})
+        dispatch({type: POST_VLOGIN_SUCCESS, payload: res.data})
     })
     .catch(err =>
         dispatch({type: POST_VLOGIN_FAIL, payload: err}))
@@ -83,7 +83,7 @@ export const deleteVolunteer = (props) => dispatch => {
     axiosWithAuth()
     .delete(`/users/volunteer/${id}`, volunteer)
     .then(res => {
-        dispatch({type: REMOVE_VOLUNTEER_SUCCESS, payload: res})
+        dispatch({type: REMOVE_VOLUNTEER_SUCCESS, payload: res.data})
     })
     .catch(err =>
         dispatch({type: REMOVE_VOLUNTEER_FAIL, payload: err}))
