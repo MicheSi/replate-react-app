@@ -1,124 +1,124 @@
 import {
-    POST_VREGISTER_START, POST_VREGISTER_SUCCESS, POST_VREGISTER_FAIL,
-    POST_VLOGIN_START, POST_VLOGIN_SUCCESS, POST_VLOGIN_FAIL,
-    GET_ALLVOLUNTEERS_START, GET_ALLVOLUNTEERS_SUCCESS, GET_ALLVOLUNTEERS_FAIL,
-    GET_VOLBYID_START, GET_VOLBYID_SUCCESS, GET_VOLBYID_FAIL,
-    PUT_VOLUNTEER_START, PUT_VOLUNTEER_SUCCESS, PUT_VOLUNTEER_FAIL,
-    REMOVE_VOLUNTEER_START, REMOVE_VOLUNTEER_SUCCESS, REMOVE_VOLUNTEER_FAIL
-} from '../actions/volunteer-actions';
+    GET_ALLFOOD_START, GET_ALLFOOD_SUCCESS, GET_ALLFOOD_FAIL,
+    GET_FOODBYID_START, GET_FOODBYID_SUCCESS, GET_FOODBYID_FAIL,
+    GET_FOODBYBUSID_START, GET_FOODBYBUSID_SUCCESS, GET_FOODBYBUSID_FAIL,
+    POST_FOOD_START, POST_FOOD_SUCCESS, POST_FOOD_FAIL,
+    PUT_FOOD_START, PUT_FOOD_SUCCESS, PUT_FOOD_FAIL,
+    REMOVE_FOOD_START, REMOVE_FOOD_SUCCESS, REMOVE_FOOD_FAIL
+} from '../actions/food-actions';
 
 const initialState = {
     isLoading: false,
     error: '',
-    volunteer: []
+    food: []
 }
 
-export const volunteerReducer = (state = initialState, action) => {
+export const foodReducer = (state = initialState, action) => {
     switch(action.type) {
-        case POST_VREGISTER_START:
+        case GET_ALLFOOD_START:
             return {
                 ...state,
                 isLoading: true,
                 error: ''
             }
-        case POST_VREGISTER_SUCCESS:
+        case GET_ALLFOOD_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
                 error: '',
-                volunteer: action.payload,
+                food: action.payload
             }
-        case POST_VREGISTER_FAIL:
+        case GET_ALLFOOD_FAIL:
             return {
                 ...state,
                 error: action.payload
             }
-        case POST_VLOGIN_START:
+        case GET_FOODBYID_START:
             return {
                 ...state,
                 isLoading: true,
                 error: ''
             }
-        case POST_VLOGIN_SUCCESS:
+        case GET_FOODBYID_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
                 error: '',
-                volunteer: action.payload,
+                food: action.payload
             }
-        case POST_VLOGIN_FAIL:
+        case GET_FOODBYID_FAIL:
             return {
                 ...state,
                 error: action.payload
             }
-        case GET_ALLVOLUNTEERS_START:
+        case GET_FOODBYBUSID_START:
             return {
                 ...state,
                 isLoading: true,
                 error: ''
             }
-        case GET_ALLVOLUNTEERS_SUCCESS:
+        case GET_FOODBYBUSID_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
                 error: '',
-                volunteer: action.payload
+                food: action.payload
             }
-        case GET_ALLVOLUNTEERS_FAIL:
+        case GET_FOODBYBUSID_FAIL:
             return {
                 ...state,
                 error: action.payload
             }
-        case GET_VOLBYID_START:
+        case POST_FOOD_START:
             return {
                 ...state,
                 isLoading: true,
                 error: ''
             }
-        case GET_VOLBYID_SUCCESS:
+        case POST_FOOD_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
                 error: '',
-                volunteer: action.payload
+                food: action.payload
             }
-        case GET_VOLBYID_FAIL:
+        case POST_FOOD_FAIL:
             return {
                 ...state,
                 error: action.payload
             }
-        case PUT_VOLUNTEER_START:
+        case PUT_FOOD_START:
             return {
                 ...state,
                 isLoading: true,
                 error: ''
             }
-        case PUT_VOLUNTEER_SUCCESS:
+        case PUT_FOOD_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
                 error: '',
-                volunteer: action.payload
+                food: action.payload
             }
-        case PUT_VOLUNTEER_FAIL:
+        case PUT_FOOD_FAIL:
             return {
                 ...state,
                 error: action.payload
             }
-        case REMOVE_VOLUNTEER_START:
+        case REMOVE_FOOD_START:
             return {
                 ...state,
                 isLoading: true,
                 error: ''
             }
-        case REMOVE_VOLUNTEER_SUCCESS:
+        case REMOVE_FOOD_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
                 error: '',
-                volunteer: action.payload
+                food: action.payload
             }
-        case REMOVE_VOLUNTEER_FAIL:
+        case REMOVE_FOOD_FAIL:
             return {
                 ...state,
                 error: action.payload
