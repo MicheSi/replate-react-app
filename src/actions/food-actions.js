@@ -1,4 +1,4 @@
-import axiosWithAuth from '../utils/axiosWithAuth';
+import {axiosWithAuth} from '../utils/axiosWithAuth';
 // get food actions
 export const GET_ALLFOOD_START = 'GET_ALLFOOD_START';
 export const GET_ALLFOOD_SUCCESS = 'GET_ALLFOOD_SUCCESS';
@@ -33,7 +33,7 @@ export const getAllFood = (props) => dispatch => {
         dispatch({type: GET_ALLFOOD_FAIL, payload: err}))
 }
 
-export const getFoodById = (props) => dispatch => {
+export const getFoodById = id => dispatch => {
     dispatch({type: GET_FOODBYID_START});
     axiosWithAuth()
     .get(`/api/food/${id}`)
@@ -44,7 +44,7 @@ export const getFoodById = (props) => dispatch => {
         dispatch({type: GET_FOODBYID_FAIL, payload: err}))
 }
 
-export const getFoodByBusId = (props) => dispatch => {
+export const getFoodByBusId = id => dispatch => {
     dispatch({type: GET_FOODBYBUSID_START});
     axiosWithAuth()
     .get(`/api/food/business/${id}`)
@@ -55,7 +55,7 @@ export const getFoodByBusId = (props) => dispatch => {
         dispatch({type: GET_FOODBYBUSID_FAIL, payload: err}))
 }
 
-export const editFood = (props) => dispatch => {
+export const editFood = (id, food) => dispatch => {
     dispatch({type: PUT_FOOD_START});
     axiosWithAuth()
     .put(`/api/food/${id}`, food)
@@ -66,7 +66,7 @@ export const editFood = (props) => dispatch => {
         dispatch({type: PUT_FOOD_FAIL, payload: err}))
 }
 
-export const deleteFood = (props) => dispatch => {
+export const deleteFood = (id, food) => dispatch => {
     dispatch({type: REMOVE_FOOD_START});
     axiosWithAuth()
     .delete(`/api/food/${id}`, food)

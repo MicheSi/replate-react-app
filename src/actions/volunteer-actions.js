@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {axiosWithAuth} from '../utils/axiosWithAuth';
 // register actions
 export const POST_VREGISTER_START = 'POST_VREGISTER_START';
 export const POST_VREGISTER_SUCCESS = 'POST_VREGISTER_SUCCESS';
@@ -55,7 +56,7 @@ export const getAllVol = (props) => dispatch => {
         dispatch({type: GET_ALLVOLUNTEERS_FAIL, payload: err}))
 }
 
-export const getVolById = (props) => dispatch => {
+export const getVolById = (id) => dispatch => {
     dispatch({type: GET_VOLBYID_START});
     axiosWithAuth()
     .get(`/users/volunteer/${id}`)
@@ -66,7 +67,7 @@ export const getVolById = (props) => dispatch => {
         dispatch({type: GET_VOLBYID_FAIL, payload: err}))
 }
 
-export const editVolunteer = (props) => dispatch => {
+export const editVolunteer = (id, volunteer) => dispatch => {
     dispatch({type: PUT_VOLUNTEER_START});
     axiosWithAuth()
     .put(`/users/volunteer/${id}`, volunteer)
@@ -78,7 +79,7 @@ export const editVolunteer = (props) => dispatch => {
         dispatch({type: PUT_VOLUNTEER_FAIL, payload: err}))
 }
 
-export const deleteVolunteer = (props) => dispatch => {
+export const deleteVolunteer = (id, volunteer) => dispatch => {
     dispatch({type: REMOVE_VOLUNTEER_START});
     axiosWithAuth()
     .delete(`/users/volunteer/${id}`, volunteer)

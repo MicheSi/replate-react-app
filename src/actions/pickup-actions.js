@@ -1,4 +1,4 @@
-import axiosWithAuth from '../utils/axiosWithAuth';
+import {axiosWithAuth} from '../utils/axiosWithAuth';
 // get pickup actions
 export const GET_ALLPICKUPS_START = 'GET_ALLPICKUPS_START';
 export const GET_ALLPICKUPS_SUCCESS = 'GET_ALLPICKUPS_SUCCESS';
@@ -33,7 +33,7 @@ export const getAllPickups = (props) => dispatch => {
         dispatch({type: GET_ALLPICKUPS_FAIL, payload: err}))
 }
 
-export const getPickupById = (props) => dispatch => {
+export const getPickupById = id => dispatch => {
     dispatch({type: GET_PICKUPBYID_START});
     axiosWithAuth()
     .get(`/api/pickups/${id}`)
@@ -44,7 +44,7 @@ export const getPickupById = (props) => dispatch => {
         dispatch({type: GET_PICKUPBYID_FAIL, payload: err}))
 }
 
-export const getPickupByVolId = (props) => dispatch => {
+export const getPickupByVolId = id => dispatch => {
     dispatch({type: GET_PICKUPBYVOLID_START});
     axiosWithAuth()
     .get(`/api/pickups/volunteer/${id}`)
@@ -55,7 +55,7 @@ export const getPickupByVolId = (props) => dispatch => {
         dispatch({type: GET_PICKUPBYVOLID_FAIL, payload: err}))
 }
 
-export const editPickup = (props) => dispatch => {
+export const editPickup = (id, pickup) => dispatch => {
     dispatch({type: PUT_PICKUP_START});
     axiosWithAuth()
     .put(`/api/pickups/${id}`, pickup)
@@ -66,10 +66,10 @@ export const editPickup = (props) => dispatch => {
         dispatch({type: PUT_PICKUP_FAIL, payload: err}))
 }
 
-export const deletePickup = (props) => dispatch => {
+export const deletePickup = (id, pickup) => dispatch => {
     dispatch({type: REMOVE_PICKUP_START});
     axiosWithAuth()
-    .delete(`/api/pickups/${id}`, food)
+    .delete(`/api/pickups/${id}`, pickup)
     .then(res => {
         dispatch({type: REMOVE_PICKUP_SUCCESS, payload: res.data})
     })

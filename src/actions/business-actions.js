@@ -1,5 +1,5 @@
 import axios from 'axios';
-import axiosWithAuth from '../utils/axiosWithAuth';
+import {axiosWithAuth} from '../utils/axiosWithAuth';
 // register actions
 export const POST_BREGISTER_START = 'POST_BREGISTER_START';
 export const POST_BREGISTER_SUCCESS = 'POST_BREGISTER_SUCCESS';
@@ -57,7 +57,7 @@ export const getAllBus = (props) => dispatch => {
         dispatch({type: GET_ALLBUSINESS_FAIL, payload: err}))
 }
 
-export const getBusById = (props) => dispatch => {
+export const getBusById = (id) => dispatch => {
     dispatch({type: GET_BUSBYID_START});
     axiosWithAuth()
     .get(`/users/business/${id}`)
@@ -68,7 +68,7 @@ export const getBusById = (props) => dispatch => {
         dispatch({type: GET_BUSBYID_FAIL, payload: err}))
 }
 
-export const editBusiness = (props) => dispatch => {
+export const editBusiness = (id, business) => dispatch => {
     dispatch({type: PUT_BUSINESS_START});
     axiosWithAuth()
     .put(`/users/business/${id}`, business)
@@ -80,7 +80,7 @@ export const editBusiness = (props) => dispatch => {
         dispatch({type: PUT_BUSINESS_FAIL, payload: err}))
 }
 
-export const deleteBusiness = (props) => dispatch => {
+export const deleteBusiness = (id, business) => dispatch => {
     dispatch({type: REMOVE_BUSINESS_START});
     axiosWithAuth()
     .delete(`/users/business/${id}`, business)
